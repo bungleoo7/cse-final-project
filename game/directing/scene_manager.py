@@ -264,3 +264,10 @@ class SceneManager:
         script.add_action(UPDATE, self.COLLIDE_BORDERS_ACTION)
         script.add_action(UPDATE, self.COLLIDE_RACKET_ACTION)
         script.add_action(UPDATE, self.COLLIDE_RACKET_ACTION2)
+        
+    def _add_score(self, cast):
+        cast.clear_actors(SCORE_GROUP)
+        text = Text(SCORE_FORMAT, FONT_FILE, FONT_SMALL, ALIGN_CENTER)
+        position = Point(CENTER_X, HUD_MARGIN)
+        label = Label(text, position)
+        cast.add_actor(SCORE_GROUP, label)
